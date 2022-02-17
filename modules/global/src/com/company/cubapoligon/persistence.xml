@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="cubapoligon" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.company.cubapoligon.entity.Customer</class>
+        <class>com.company.cubapoligon.entity.Order</class>
+        <class>com.company.cubapoligon.entity.Address</class>
+        <class>com.company.cubapoligon.entity.Strore</class>
+        <class>com.company.cubapoligon.entity.Product</class>
+    </persistence-unit>
+</persistence>
