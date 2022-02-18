@@ -1,0 +1,6 @@
+{
+  "name": "cubapoligon-generation",
+  "devDependencies": {
+    "@cuba-platform/front-generator": "^4.0.0"
+  }
+}

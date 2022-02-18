@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
 
+    <view entity="cubapoligon_Order" name="order-view" extends="_local">
+        <property name="customer" view="_minimal">
+            <property name="email"/>
+        </property>
+    </view>
+    <view entity="cubapoligon_Order" name="order-view_1" extends="_local">
+        <property name="customer" view="_minimal">
+            <property name="email"/>
+        </property>
+    </view>
 </views>
