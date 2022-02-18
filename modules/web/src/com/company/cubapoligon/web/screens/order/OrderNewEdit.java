@@ -1,5 +1,5 @@
 package com.company.cubapoligon.web.screens.order;
-
+import com.company.cubapoligon.entity.OrderLine;
 import com.haulmont.cuba.core.app.UniqueNumbersService;
 import com.haulmont.cuba.core.global.TimeSource;
 import com.haulmont.cuba.gui.Notifications;
@@ -24,6 +24,8 @@ public class OrderNewEdit extends StandardEditor<Order> {
     private UniqueNumbersService uniqueNumbersService;
     @Inject
     private Notifications notifications;
+
+
 
     @Subscribe
     public void onInitEntity(InitEntityEvent<Order> event) {
