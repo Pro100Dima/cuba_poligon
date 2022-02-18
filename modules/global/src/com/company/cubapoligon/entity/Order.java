@@ -1,12 +1,16 @@
 package com.company.cubapoligon.entity;
 
+import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.chile.core.annotations.NamePattern;
 import com.haulmont.cuba.core.entity.StandardEntity;
+import com.haulmont.cuba.core.entity.annotation.OnDelete;
+import com.haulmont.cuba.core.global.DeletePolicy;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "CUBAPOLIGON_ORDER")
 @Entity(name = "cubapoligon_Order")
@@ -18,6 +22,11 @@ public class Order extends StandardEntity {
     @JoinColumn(name = "CUSTOMER_ID")
     private Customer customer;
 
+    @Composition
+    @OnDelete(DeletePolicy.CASCADE)
+    @OneToMany(mappedBy = "order")
+    private List<OrderLine> orderLine;
+
     @Temporal(TemporalType.DATE)
     @Column(name = "DATE_")
     private Date date;
@@ -28,6 +37,14 @@ public class Order extends StandardEntity {
     @NotNull
     @Column(name = "NUMBER_", nullable = false)
     private String number;
+
+    public List<OrderLine> getOrderLine() {
+        return orderLine;
+    }
+
+    public void setOrderLine(List<OrderLine> orderLine) {
+        this.orderLine = orderLine;
+    }
 
     public String getNumber() {
         return number;

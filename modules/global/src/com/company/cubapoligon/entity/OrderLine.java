@@ -19,6 +19,18 @@ public class OrderLine extends StandardEntity {
     @Column(name = "QUANTITY", nullable = false)
     private Integer quantity;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "ORDER_ID")
+    private Order order;
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
     public Integer getQuantity() {
         return quantity;
     }
