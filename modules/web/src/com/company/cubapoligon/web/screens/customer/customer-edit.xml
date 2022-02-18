@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://customerEdit.caption"
+        focusComponent="form"
+        messagesPack="com.company.cubapoligon.web.screens.customer">
+    <data>
+        <instance id="customerDc"
+                  class="com.company.cubapoligon.entity.Customer">
+            <view extends="_local"/>
+            <loader/>
+        </instance>
+        <collection id="ordersDc" class="com.company.cubapoligon.entity.Order">
+            <view extends="_local"/>
+            <loader id="ordersDl">
+                <query>
+                    <![CDATA[select e from cubapoligon_Order e
+where e.customer = :customer]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="customerDc">
+            <column width="350px">
+                <textField id="nameField" property="name"/>
+                <textField id="emailField" property="email"/>
+                <label id="label" value="msg://ordersLabels"/>
+                <table id="ordersTable" height="100px" width="100%" dataContainer="ordersDc">
+                    <columns>
+                        <column id="date"/>
+                        <column id="amount"/>
+                        <column id="number"/>
+                    </columns>
+                </table>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
-    <menu id="application-cubapoligon" insertBefore="administration" caption="mainMsg://menu_config.application-cubapoligon">
+    <menu id="application-cubapoligon" insertBefore="administration" caption="mainMsg://menu_config.application-cubapoligon"
+          description="mainMsg://application-cubapoligon.description">
+        <item screen="cubapoligon_Customer.browse" caption="mainMsg://menu_config.cubapoligon_Customer.browse"/>
+        <item screen="cubapoligon_Product.browse" caption="mainMsg://menu_config.cubapoligon_Product.browse"/>
+        <item screen="cubapoligon_Order.browse" caption="mainMsg://menu_config.cubapoligon_Order.browse"/>
+        <item screen="cubapoligon_Strore.browse" caption="mainMsg://menu_config.cubapoligon_Strore.browse"/>
     </menu>
 </menu-config>

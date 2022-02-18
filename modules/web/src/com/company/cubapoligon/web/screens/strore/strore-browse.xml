@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://stroreBrowse.caption"
+        focusComponent="stroresTable"
+        messagesPack="com.company.cubapoligon.web.screens.strore">
+    <data readOnly="true">
+        <collection id="stroresDc"
+                    class="com.company.cubapoligon.entity.Strore">
+            <view extends="_local">
+                <property name="address" view="_local"/>
+            </view>
+            <loader id="stroresDl">
+                <query>
+                    <![CDATA[select e from cubapoligon_Strore e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="stroresTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="stroresTable"
+                dataLoader="stroresDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="stroresTable"
+                    width="100%"
+                    dataContainer="stroresDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="address.city"/>
+                <column id="address.street"/>
+                <column id="address.number"/>
+                <column id="storeType"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="stroresTable.create"/>
+                <button id="editBtn" action="stroresTable.edit"/>
+                <button id="removeBtn" action="stroresTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
