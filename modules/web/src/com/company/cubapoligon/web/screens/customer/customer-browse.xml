@@ -45,6 +45,7 @@
                 <button id="editBtn" action="customersTable.edit"/>
                 <button id="removeBtn" action="customersTable.remove"/>
                 <button id="refreshBtn" action="customersTable.refresh"/>
+                <button id="button" caption="msg://service" invoke="onButtonClick"/>
             </buttonsPanel>
         </table>
         <hbox id="lookupActions" spacing="true" visible="false">
